@@ -21,11 +21,9 @@ if uploaded_file is not None:
     img_array = np.array(img_resized) / 255.0  # normalize
     img_array = np.expand_dims(img_array, axis=0)  # add batch dimension
 
-    # Show a loading spinner during prediction
-    with st.spinner("Analyzing toothbrush quality..."):
-        prediction = model.predict(img_array)
-        class_names = ["Good", "Defective"]
-        predicted_class = class_names[np.argmax(prediction)]
-        confidence = np.max(prediction) * 100
+    # Make prediction
+    prediction = model.predict(img_array)
+    class_names = ["Good", "Defective"] 
+    predicted_class = class_names[np.argmax(prediction)]
 
-    st.markdown(f"### 🔍 Verdict: **{predicted_class} Toothbrush** ({confidence:.2f}% confidence)")
+    st.markdown(f"### 🔍 Verdict: **{predicted_class} Toothbrush**")
