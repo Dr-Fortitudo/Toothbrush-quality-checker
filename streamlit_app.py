@@ -25,7 +25,7 @@ if uploaded_file is not None:
 
     # Make prediction
     prediction = model.predict(img_array)
-    class_names = ["Defective", "Good"]  # Adjust order based on your model
+    class_names = ["Good", "Defective"] 
     predicted_class = class_names[np.argmax(prediction)]
 
     st.markdown(f"### 🔍 Verdict: **{predicted_class} Toothbrush**")
