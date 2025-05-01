@@ -3,12 +3,9 @@ from PIL import Image
 import numpy as np
 import tensorflow as tf
 
-@st.cache_resource
-def load_model():
-    model = tf.keras.models.load_model("Toothbrush_checker_model.h5") 
-    return model
-
-model = load_model()
+# Load the trained model
+MODEL_PATH = "Toothbrush_checker_model.h5"
+model = load_model(MODEL_PATH)
 
 st.title("Toothbrush Quality Checker 🪥")
 
