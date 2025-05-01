@@ -3,7 +3,6 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from PIL import Image
-import cv2
 
 # Load the trained model
 MODEL_PATH = "Toothbrush_checker_model.h5"
