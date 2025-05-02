@@ -32,6 +32,6 @@ if uploaded_file is not None:
             class_names = ["Good", "Defective"]
             predicted_class = class_names[np.argmax(prediction)]
             confidence = np.max(prediction) * 100
-        st.markdown("### 🔍 Verdict: **{predicted_class} Toothbrush** ({confidence:.2f}% confidence)")
+        st.markdown(f"### 🔍 Verdict: **{predicted_class} Toothbrush** ({confidence:.2f}% confidence)")
     except Exception as e:
         st.error(f"Error during prediction: {str(e)}")
