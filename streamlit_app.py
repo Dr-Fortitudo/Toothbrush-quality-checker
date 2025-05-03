@@ -30,12 +30,15 @@ if uploaded_file is not None:
         img_array = preprocess_image(image)
 
         with st.spinner("Analyzing toothbrush quality..."):
-            prediction = model(img_array)  # ✅ Pass input as a tensor, not dict
+            output = model(img_array)  # returns dict
+            prediction = output["sequential_11"].numpy()  # extract tensor
+    
             class_names = ["Good", "Defective"]
             predicted_class = class_names[np.argmax(prediction)]
             confidence = np.max(prediction) * 100
-
+    
         st.markdown(f"### 🔍 Verdict: **{predicted_class} Toothbrush** ({confidence:.2f}% confidence)")
 
     except Exception as e:
         st.error(f"Error during prediction: {str(e)}")
+
