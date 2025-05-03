@@ -37,7 +37,16 @@ if uploaded_file is not None:
             predicted_class = class_names[np.argmax(prediction)]
             confidence = np.max(prediction) * 100
     
-        st.markdown(f"### 🔍 Verdict: **{predicted_class} Toothbrush** ({confidence:.2f}% confidence)")
+        if predicted_class == "Good":
+            st.markdown(
+                f"<h3 style='color: green;'>✅ Verdict: {predicted_class} Toothbrush ({confidence:.2f}% confidence)</h3>",
+                unsafe_allow_html=True
+            )
+        else:
+            st.markdown(
+                f"<h3 style='color: red;'>❌ Verdict: {predicted_class} Toothbrush ({confidence:.2f}% confidence)</h3>",
+                unsafe_allow_html=True
+            )
 
     except Exception as e:
         st.error(f"Error during prediction: {str(e)}")
