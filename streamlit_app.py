@@ -5,7 +5,7 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 
 # Load the trained model
-MODEL_PATH = "saved_model"
+MODEL_PATH = "saved_model.pb"
 model = tf.keras.models.load_model(MODEL_PATH, compile=False)
 
 st.title("Toothbrush Quality Checker 🪥")
